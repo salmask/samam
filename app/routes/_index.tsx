@@ -1,41 +1,23 @@
-import type { MetaFunction } from "@remix-run/node";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+import Header from '~/components/Layout/Header';
+import Footer from '~/components/Layout/Footer';
+import News from '~/components/News/News';
+import UpcomingEvents from '~/components/Events/UpcomingEvents';
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="container mx-auto p-4">
+      <Header />
+      <main>
+        <section className="mb-8">
+          <h2 className="text-3xl font-bold mb-4">News</h2>
+          <News />
+        </section>
+        <section>
+          <h2 className="text-3xl font-bold mb-4">Upcoming Events</h2>
+          <UpcomingEvents />
+        </section>
+      </main>
+      <Footer />
     </div>
   );
 }
