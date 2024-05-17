@@ -19,13 +19,12 @@ export default function Header() {
               <li><Link to="/contacts"><FaPhone className="mr-2" /> Contacts</Link></li>
             </ul>
           </div>
-         
-        </div>
-        <div className="navbar-center">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <img src="assets/logo.png" alt="Satyanveshana Mandali Logo" className="h-12 hidden lg:block" />
-      Satyanveshana Mandali</Link>
+            <img src="assets/logo.png" alt="Satyanveshana Mandali Logo" className="h-8 mr-2" />
+            <span className="hidden lg:inline">Satyanveshana Mandali</span>
+          </Link>
         </div>
+        
         <div className="navbar-end flex space-x-2">
           <Link to="/search" className="btn btn-ghost btn-circle">
             <FaSearch className="h-5 w-5" />
@@ -36,7 +35,6 @@ export default function Header() {
               <span className="badge badge-xs badge-primary indicator-item"></span>
             </div>
           </Link>
-           
         </div>
       </div>
     </header>
