@@ -1,7 +1,11 @@
-import { Link } from '@remix-run/react';
-import { FaInfoCircle, FaCalendarAlt, FaBook, FaPhone, FaBell, FaSearch } from 'react-icons/fa';
+import { Form, Link } from '@remix-run/react';
+import { FaInfoCircle, FaCalendarAlt, FaBook, FaPhone, FaBell, FaSearch, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 
-export default function Header() {
+type HeaderProps = {
+  authenticated: boolean;
+};
+
+const Header = ({ authenticated }: HeaderProps) => {
   return (
     <header className="sticky top-0 z-50 bg-base-100 shadow-md mb-8">
       <div className="navbar bg-base-100">
@@ -24,7 +28,7 @@ export default function Header() {
             <span className="hidden lg:inline">Satyanveshana Mandali</span>
           </Link>
         </div>
-        
+
         <div className="navbar-end flex space-x-2">
           <Link to="/search" className="btn btn-ghost btn-circle">
             <FaSearch className="h-5 w-5" />
@@ -35,8 +39,19 @@ export default function Header() {
               <span className="badge badge-xs badge-primary indicator-item"></span>
             </div>
           </Link>
+          {authenticated ? (
+            <Link to="/logout"  className="btn btn-ghost btn-circle">
+              <FaSignOutAlt className="h-5 w-5" />Logout
+            </Link>
+          ) : (
+            <Link to="/login" className="btn btn-ghost btn-circle">
+              <FaSignInAlt className="h-5 w-5" />Login
+            </Link>
+          )}
         </div>
       </div>
     </header>
   );
-}
+};
+
+export default Header;

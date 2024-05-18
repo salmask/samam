@@ -4,15 +4,28 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css?url";
 
-import { LinksFunction } from "@remix-run/node";
+import { LinksFunction, LoaderFunction, json } from "@remix-run/node";
+import Header from "./components/Layout/Header";
+import Footer from "./components/Layout/Footer";
+import { isAuthenticated } from "./utils/auth";
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const authenticated  = await isAuthenticated(request);
+  return json({ authenticated });
+};
+
+
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { authenticated } = useLoaderData<typeof loader>();
+
   return (
     <html lang="en" data-theme="retro">
       <head>
@@ -22,7 +35,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <Header authenticated={authenticated} />
         {children}
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>

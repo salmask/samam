@@ -1,12 +1,9 @@
 import { FaRegAddressCard } from 'react-icons/fa';
-import Footer from '~/components/Layout/Footer';
-import Header from '~/components/Layout/Header';
 
 export default function About() {
   return (
     <div className="container mx-auto p-4">
-      <Header/>
-      <h2 className="text-3xl font-bold mb-4 flex items-center">
+     <h2 className="text-3xl font-bold mb-4 flex items-center">
         <FaRegAddressCard className="mr-2" /> About Satyanveshana Mandali
       </h2>
       <p className="text-lg">
@@ -17,8 +14,7 @@ export default function About() {
       </p>
       <p className="text-lg mt-4">
         Join us in our quest for knowledge and be a part of a community that values truth, learning, and intellectual growth.
-      </p>
-      <Footer/>
+      </p> 
     </div>
   );
 }
