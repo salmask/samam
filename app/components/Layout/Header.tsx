@@ -33,16 +33,18 @@ const Header = ({ authenticated }: HeaderProps) => {
           <Link to="/search" className="btn btn-ghost btn-circle">
             <FaSearch className="h-5 w-5" />
           </Link>
-          <Link to="/notifications" className="btn btn-ghost btn-circle">
+          {authenticated ? (
+           <>
+           <Link to="/notifications" className="btn btn-ghost btn-circle">
             <div className="indicator">
               <FaBell className="h-5 w-5" />
               <span className="badge badge-xs badge-primary indicator-item"></span>
             </div>
           </Link>
-          {authenticated ? (
             <Link to="/logout"  className="btn btn-ghost btn-circle">
               <FaSignOutAlt className="h-5 w-5" />Logout
             </Link>
+           </>
           ) : (
             <Link to="/login" className="btn btn-ghost btn-circle">
               <FaSignInAlt className="h-5 w-5" />Login
