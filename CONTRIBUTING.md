@@ -30,9 +30,34 @@ Unsure where to begin contributing to Samam? You can start by looking through th
 - Write or update documentation as necessary
 - Ensure the build passes
 
+### Setting Up Your Development Environment
+
+To set up your development environment, you need to configure some environment variables and set up MongoDB:
+
+1. **Create a `.env` file**: Copy the contents of `.env.example` to a new `.env` file in the root of the project.
+
+    ```
+    cp .env.example .env
+    ```
+
+2. **Fill in the environment variables**: The current required variables are:
+    ```
+    MONGODB_URI=
+    JWT_SECRET=
+    ```
+   - **MONGODB_URI**: Set up MongoDB on your local machine or use a cloud MongoDB service, and put the connection string here.
+   - **JWT_SECRET**: Generate a suitable string for JWT secret and add it here.
+
+3. **Install dependencies and start the development server**:
+    ```shell
+    npm install
+    npm run dev
+    ```
+
 ## Code of Conduct
 
-Samam has adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
+Samam has adopted a Code of Conduct that we expect project participants to adhere to. Please read the full text in our [Code of Conduct](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+
 
 ## Getting Started
 
