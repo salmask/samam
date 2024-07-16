@@ -42,7 +42,11 @@ export const findUserByEmail = async (email: string): Promise<IUser | null> => {
 
 export const createUser = async (email: string, password: string): Promise<IUser> => {
   await connectToDatabase();
-  const user = new User({ email, password, role: Role.User });
+
+  const existingUsersCount = await User.countDocuments({});
+  const role = existingUsersCount === 0 ? Role.Admin : Role.User;
+  
+  const user = new User({ email, password, role });
   await user.save();
   return user;
 };
